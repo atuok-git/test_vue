@@ -9,20 +9,23 @@
 </head>
 <body>
     <div id="app">
-        <h2>TODO List</h2>
-        <form v-on:submit.prevent>
-            <input type="text" v-model="newItem">
-            <button v-on:click="addItem">Add</button>
-        </form>
-        <ul>
-            <li v-for="(todo, index) in todos">
-                <input type="checkbox" v-model="todo.isDone">
-                <span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span>
-                <button v-on:click="deleteItem(index)">Delete</button>
-            </li>
-        </ul>
-        <!-- <pre>{{ $data }}</pre> -->
+        <p v-cloak>{{ message }}</p>
+        <p v-cloak>{{ message.split('').reverse().join('') }}</p>
+        <p>{{ number +1 }}</p>
+        <p>{{ ok ? 'yes' : 'no' }}</p>
 
+        <a v-bind:href="url">link1</a>
+
+        <br>
+        <button v-on:click="clickHandler">
+            Click!!
+        </button>
+        <h2>Mustache</h2>
+        <p>{{ message }}</p>
+
+        <h2>v-text</h2>
+        <p v-text="message"></p>
+        <a :href="url">link1</a>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.1.5"></script> 
     <script src="js/main.js"></script>

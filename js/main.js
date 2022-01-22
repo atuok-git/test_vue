@@ -1,22 +1,14 @@
 const app = Vue.createApp({
     data: () => ({
-        newItem: '',
-        todos: [],
-
+        message: 'Hello Vue.js!!',
+        number: 100,
+        ok: true,
+        url: 'https://www.google.com/search',
     }),
     methods: {
-        addItem: function(event) {
-            let todo = {
-                item: this.newItem,
-                isDone: false,
-            }
-            if(this.newItem === '') return
-            this.todos.push(todo)
-            this.newItem = ''
-        },
-        deleteItem: function(index) {
-            this.todos.splice(index, 1)
+        clickHandler : function(event) {
+            this.message = this.message.split('').reverse().join('')
         }
-    } 
+    }
 })
 app.mount('#app')
