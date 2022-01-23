@@ -9,19 +9,33 @@
 </head>
 <body>
     <div id="app">
-        <h2>TODO List</h2>
-        <form v-on:submit.prevent>
-            <input type="text" v-model="newItem">
-            <button v-on:click="addItem">Add</button>
-        </form>
-        <ul>
-            <li v-for="(todo, index) in todos">
-                <input type="checkbox" v-model="todo.isDone">
-                <span v-bind:class="{ done: todo.isDone }">{{ todo.item }}</span>
-                <button v-on:click="deleteItem(index)">Delete</button>
-            </li>
-        </ul>
-        <!-- <pre>{{ $data }}</pre> -->
+        <h2>v-model</h2>
+        {{ message }}
+        <p><input type="text" v-model="message"></p>
+
+        <label for="checkbox">{{ checked }}</label>
+        <input type="checkbox" id="checkbox" v-model="checked">
+
+        <br>
+
+        <label for="Red">Red</label>
+        <input type="checkbox" id="Red" value="Red" v-model="colors">
+        <label for="Green">Green</label>
+        <input type="checkbox" id="Green" value="Green" v-model="colors">
+        <label for="Blue">Blue</label>
+        <input type="checkbox" id="Blue" value="Blue" v-model="colors">
+        <p>{{ colors }}</p>
+
+        <br>
+
+        <select v-model="selected">
+            <option disabled value="">Please select one</option>
+            <option>Red</option>
+            <option>Green</option>
+            <option>Blue</option>
+        </select>
+        <p>{{ selected }}</p>
+
 
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@3.1.5"></script> 
