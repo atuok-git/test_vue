@@ -1,22 +1,24 @@
 const app = Vue.createApp({
     data: () => ({
-        newItem: '',
-        todos: [],
+        // isLarge: true,
+        // hasError: false,
 
-    }),
-    methods: {
-        addItem: function(event) {
-            let todo = {
-                item: this.newItem,
-                isDone: false,
-            }
-            if(this.newItem === '') return
-            this.todos.push(todo)
-            this.newItem = ''
+        // largeClass: 'large',
+        // dangerClass: 'text-danger',
+
+        // classObject: {
+        //     large: true,
+        //     'text-danger': true,
+        // }
+
+        largeClass: {
+            'large': true,
+            'bg-gray': true,
         },
-        deleteItem: function(index) {
-            this.todos.splice(index, 1)
-        }
-    } 
+        dangerClass: {
+            'text-danger': true
+        },
+        isLarge: true,
+    }),
 })
 app.mount('#app')
