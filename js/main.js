@@ -1,22 +1,29 @@
 const app = Vue.createApp({
     data: () => ({
-        newItem: '',
-        todos: [],
-
+        basePrice: 100,
     }),
-    methods: {
-        addItem: function(event) {
-            let todo = {
-                item: this.newItem,
-                isDone: false,
+    computed: {
+        taxIncludePrice: {
+            get: function() {
+                return this.basePrice * 2
+            },
+            set: function(value) {
+                this.basePrice = value /2
             }
-            if(this.newItem === '') return
-            this.todos.push(todo)
-            this.newItem = ''
         },
-        deleteItem: function(index) {
-            this.todos.splice(index, 1)
+        computedNumber: function() {
+            console.log('computed')
+            return Math.random()
         }
-    } 
+    },
+    methods: {
+        reversedMessageMethod: function() {
+            return this.message.split('').reverse().join('')
+        },
+        methodsNumber: function() {
+            console.log('methods')
+            return Math.random()
+        }
+    }
 })
 app.mount('#app')
