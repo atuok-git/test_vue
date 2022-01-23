@@ -1,22 +1,20 @@
 const app = Vue.createApp({
     data: () => ({
-        newItem: '',
-        todos: [],
-
+        // color: 'blue',
+        // toggle: true,      
+        counter: 0,
+        message: '',
+        date: '',
     }),
     methods: {
-        addItem: function(event) {
-            let todo = {
-                item: this.newItem,
-                isDone: false,
-            }
-            if(this.newItem === '') return
-            this.todos.push(todo)
-            this.newItem = ''
+        clickHandler: function($event, message) {
+            this.counter++
+            this.message = message
+            console.log($event)
         },
-        deleteItem: function(index) {
-            this.todos.splice(index, 1)
+        getDate: function() {
+            this.date = new Date().toLocaleTimeString()
         }
-    } 
+    }
 })
 app.mount('#app')
