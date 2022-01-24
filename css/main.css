@@ -1,7 +1,7 @@
-#app ul {
-    list-style: none;
+.fade-enter-active, .fade-leave-active {
+    transition: opacity 3s;
 }
 
-#app li > span.done {
-    text-decoration: line-through;
+.fade-enter-from, .fade-leave-to {
+    opacity: 0;
 }

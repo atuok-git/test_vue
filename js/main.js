@@ -1,22 +1,32 @@
-const app = Vue.createApp({
-    data: () => ({
-        newItem: '',
-        todos: [],
+const hogeComponent = {
+    template: '<p>hogehoge!</p>'
+}
 
+const buttonCounter = {
+    template: '<div><span>count: </span><button v-on:click="countUp">{{ count }}</button></div>',
+    data: () => ({
+        count: 0,
     }),
     methods: {
-        addItem: function(event) {
-            let todo = {
-                item: this.newItem,
-                isDone: false,
-            }
-            if(this.newItem === '') return
-            this.todos.push(todo)
-            this.newItem = ''
-        },
-        deleteItem: function(index) {
-            this.todos.splice(index, 1)
+        countUp: function(event) {
+            this.count++
         }
-    } 
+    }
+}
+
+const app = Vue.createApp({
+    data: () => ({
+        show: true,
+    }),
+    methods: {
+    }, 
+    components: {
+        'hoge-component': hogeComponent,
+        'button-counter': buttonCounter,
+    }
+})
+
+app.component('hello-component', {
+    template: '<p>Hello!</p>'
 })
 app.mount('#app')
